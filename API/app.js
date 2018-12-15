@@ -9,10 +9,7 @@ app.get("/:date", async function(req, res) {
 });
 
 app.get("/:begin/:end", async function(req, res) {
-    let beginDate = newDateFromString(req.params.begin);
-    let endDate = newDateFromString(req.params.end);
-
-    let allDates = getDates(beginDate, endDate);
+    let allDates = getDates(req.params.begin, req.params.end);
     let allCurrencies = [];
 
     let currentDateString;
@@ -57,9 +54,12 @@ function newDateFromString(stringDate) {
     return new Date(dateSplitted[2], dateSplitted[1] - 1, dateSplitted[0]);
 }
 
-function getDates(startDate, stopDate) {
-    let dateArray = new Array();
+function getDates(beginDate, endDate) {
+    let startDate = newDateFromString(beginDate);
+    let stopDate = newDateFromString(endDate);
+    let dateArray = [];
     let currentDate = startDate;
+
     while (currentDate <= stopDate) {
         dateArray.push(new Date(currentDate));
         currentDate = currentDate.addDays(1);
