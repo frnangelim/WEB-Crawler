@@ -46,7 +46,14 @@ class LineChart extends Component {
 
   renderLoading() {
     if (this.props.loading) {
-      return <span>Carregando...</span>;
+      return (
+        <div>
+          <div>
+            <span>Por favor, aguarde. Isso pode demorar um pouco.</span>
+          </div>
+          <span>Carregando...</span>
+        </div>
+      );
     } else {
       return;
     }

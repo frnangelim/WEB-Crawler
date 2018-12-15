@@ -32,20 +32,33 @@ class Currency extends Component {
   };
 
   handleBeginDateChange = e => {
-    let date = new Date(e.target.value);
-    let now = new Date();
-    if (date < now) {
-      this.setState({ beginDate: e.target.value });
-    }
+    this.setState({ beginDate: e.target.value });
   };
 
   handleEndDateChange = e => {
-    let date = new Date(e.target.value);
-    let now = new Date();
-    if (date < now) {
-      this.setState({ endDate: e.target.value });
-    }
+    this.setState({ endDate: e.target.value });
   };
+
+  renderInvalidInputMsg() {
+    if (this.validDates() || (!this.state.beginDate || !this.state.endDate)) {
+      return;
+    } else {
+      return (
+        <span className="invalidMsg">Por favor, insira datas válidas.</span>
+      );
+    }
+  }
+
+  validDates() {
+    let begin = this.state.beginDate;
+    let end = this.state.endDate;
+
+    if (helpers.validDates(begin, end)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   render() {
     return (
@@ -70,9 +83,11 @@ class Currency extends Component {
               required
             />
           </div>
+          <div>{this.renderInvalidInputMsg()}</div>
           <button
             onClick={this.getCurrencies}
             className="btn btn-secondary btn-sm"
+            disabled={!this.validDates()}
           >
             ENVIAR
           </button>

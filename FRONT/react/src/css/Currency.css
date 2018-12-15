@@ -6,3 +6,7 @@
   margin-bottom: 30px;
   margin-right: 20px;
 }
+
+.invalidMsg {
+  color: red;
+}
