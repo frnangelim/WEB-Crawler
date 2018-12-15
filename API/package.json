@@ -1,0 +1,25 @@
+{
+  "name": "crawler_api",
+  "version": "1.0.0",
+  "description": "API WEB Crawler",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "crawler"
+  ],
+  "author": "Francisco Angelim - Node JS KickStart - https://github.com/frnangelim/NodeJS_kickstart",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "cheerio": "^1.0.0-rc.2",
+    "cors": "^2.8.5",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.4.0",
+    "mongoose": "^4.6.6",
+    "request": "^2.88.0",
+    "validator": "^6.1.0"
+  }
+}
